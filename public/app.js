@@ -1,5 +1,5 @@
 // ------------------------------------------------------------
-// Music Store Generator - Frontend (FINAL VERSION with 🎲 Fix)
+// Music Store Generator - Frontend (FINAL VERSION with  Fix)
 // ------------------------------------------------------------
 
 const langSelect = document.getElementById("lang");

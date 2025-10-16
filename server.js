@@ -1,4 +1,4 @@
-// server.js (complete)
+
 
 import express from "express";
 import cors from "cors";
@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
-/* -------------------- Locale loading (JSON in /locales) -------------------- */
+
 const localesDir = path.join(__dirname, "locales");
 const localeCache = {};
 function loadLocale(code) {
@@ -30,11 +30,11 @@ function loadLocale(code) {
 // Faker must have a fallback chain to avoid "person.first_name missing".
 function getFakerForRegion(region) {
   const primary = region === "de-DE" ? de : en_US;
-  // Primary -> en -> base provides the missing pieces safely.
+
   return new Faker({ locale: [primary, en, base] });
 }
 
-/* ------------------------------- 64-bit RNG ------------------------------- */
+
 function toBigInt64(seedStr) {
   try {
     if (typeof seedStr === "bigint") return seedStr;
@@ -58,13 +58,13 @@ function makeRng64(seedBig, pageNum) {
   return () => {
     s ^= s >> 12n; s ^= s << 25n; s ^= s >> 27n;
     const x = (s * 0x2545f4914f6cdd1dn) & ((1n << 64n) - 1n);
-    return Number(x >> 11n) / 9007199254740992; // upper 53 bits -> [0,1)
+    return Number(x >> 11n) / 9007199254740992; 
   };
 }
 const rngInt = (rng, a, b) => a + Math.floor(rng() * (b - a + 1));
 const pick = (rng, arr) => arr[Math.floor(rng() * arr.length)] || arr[0];
 
-/* -------------------------- Title/Artist/Album ---------------------------- */
+
 function makeTitle(rng, loc) {
   const { adjectives, nouns, suffixes } = loc.title_words;
   const pattern = rng() < 0.5 ? 1 : rng() < 0.75 ? 2 : 3;
@@ -116,7 +116,7 @@ function likesFromAvg(rng, avg) {
   return base + (rng() < p ? 1 : 0);
 }
 
-/* --------------------------------- Cover --------------------------------- */
+
 function makeCoverSvg({ title, artist, w=512, h=512, hue=200, sat=60, lum=20 }) {
   const bg1 = `hsl(${hue}, ${sat}%, ${lum + 20}%)`;
   const bg2 = `hsl(${(hue + 60) % 360}, ${Math.max(40, sat - 10)}%, ${lum + 30}%)`;
@@ -136,7 +136,7 @@ function makeCoverSvg({ title, artist, w=512, h=512, hue=200, sat=60, lum=20 }) 
 }
 const escapeXml = s => String(s).replace(/[<>&'"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&apos;','"':'&quot;'}[c]));
 
-/* ------------------------------ Audio (WAV) ------------------------------- */
+
 const SAMPLE_RATE = 44100;
 function noteFreq(semitonesFromA4) { return 440 * Math.pow(2, semitonesFromA4 / 12); }
 const SCALES = { C_major: [0,2,4,5,7,9,11], A_minor: [0,2,3,5,7,8,10] };
@@ -193,7 +193,7 @@ function synthSongPcm(rng, seconds = 10) {
     }
   }
 
-  // normalize + convert to Int16
+  
   let max = 0; for (let i = 0; i < length; i++) max = Math.max(max, Math.abs(pcm[i]));
   const gain = max > 0 ? 0.98 / max : 1;
   const out = new Int16Array(length);
@@ -211,13 +211,13 @@ function encodeWav(int16, sampleRate = SAMPLE_RATE) {
   header.writeUInt32LE(36 + dataSize, 4);
   header.write("WAVE", 8);
   header.write("fmt ", 12);
-  header.writeUInt32LE(16, 16);             // PCM chunk size
-  header.writeUInt16LE(1, 20);              // audio format = PCM
-  header.writeUInt16LE(numChannels, 22);    // channels
-  header.writeUInt32LE(sampleRate, 24);     // sample rate
-  header.writeUInt32LE(sampleRate * numChannels * bytesPerSample, 28); // byte rate
-  header.writeUInt16LE(numChannels * bytesPerSample, 32);              // block align
-  header.writeUInt16LE(8 * bytesPerSample, 34);                        // bits per sample
+  header.writeUInt32LE(16, 16);             
+  header.writeUInt16LE(1, 20);             
+  header.writeUInt16LE(numChannels, 22);  
+  header.writeUInt32LE(sampleRate, 24);     
+  header.writeUInt32LE(sampleRate * numChannels * bytesPerSample, 28); 
+  header.writeUInt16LE(numChannels * bytesPerSample, 32);              
+  header.writeUInt16LE(8 * bytesPerSample, 34);                       
   header.write("data", 36);
   header.writeUInt32LE(dataSize, 40);
 
@@ -225,7 +225,7 @@ function encodeWav(int16, sampleRate = SAMPLE_RATE) {
   return Buffer.concat([header, pcmBuf]);
 }
 
-/* ---------------------------------- API ---------------------------------- */
+
 app.get("/api/random-seed", (req,res) => {
   const a = BigInt(Math.floor(Math.random() * 2 ** 32));
   const b = BigInt(Math.floor(Math.random() * 2 ** 32));
@@ -263,7 +263,7 @@ function buildSongs({ lang, seed, page, pageSize, likes }) {
   const items = [];
   for (let i = 0; i < size; i++) {
     const idx = (pageN - 1) * size + i + 1;
-    rng(); rng(); rng();                         // keep deterministic spacing
+    rng(); rng(); rng();                        
     const title  = makeTitle(rng, loc);
     const artist = makeArtist(rng, faker);
     const album  = makeAlbumOrSingle(rng, loc);
@@ -310,7 +310,7 @@ app.get("/api/exportZip", async (req,res,next) => {
     archive.pipe(res);
 
     for (const it of payload.items) {
-      // parse back page & index from audioUrl to guarantee exact same sound
+
       const u = new URL("http://x" + it.audioUrl);
       const seedQ = u.searchParams.get("seed");
       const pageQ = Number(u.searchParams.get("page"));
@@ -332,12 +332,12 @@ app.get("/api/exportZip", async (req,res,next) => {
   }
 });
 
-/* --------------------------- SPA fallback -------------------------------- */
+
 app.get("*", (req,res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-/* --------------------------------- Boot ---------------------------------- */
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Music Store generator running on http://localhost:${PORT}`);

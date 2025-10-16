@@ -1,0 +1,37 @@
+{
+  "code": "en-US",
+  "genres": [
+    "Pop","Rock","Hip-Hop","Electronic","R&B","Country","Jazz","Classical","Indie","Metal",
+    "Folk","Reggae","House","Techno","Drum & Bass","Soul","Blues","Trap","K-Pop","Ambient"
+  ],
+  "title_words": {
+    "adjectives": [
+      "Golden","Neon","Silent","Wild","Electric","Fading","Lonely","Velvet","Western","Urban",
+      "Crystal","Midnight","Shining","Broken","Lucky","Silver","Blue","Hidden","Digital","Furious",
+      "Endless","Frosty","Burning","Fuzzy"
+    ],
+    "nouns": [
+      "Echo","Sky","River","Dream","Heart","Fire","Storm","Light","Shadow","Road","Memory","Story",
+      "Signal","Pulse","Rhythm","Machine","Moon","Sunrise","City","Flame","Wave","Forest","Window","Carousel"
+    ],
+    "suffixes": ["Blues","Anthem","Reprise","Serenade","Rhapsody","Groove","Beat","Mix","Jam","Edit"]
+  },
+  "album_words": {
+    "adjectives": ["Golden","Neon","Hidden","Loud","Quiet","Liquid","Sacred","Soft","Cold","Burning","Noisy","Deep","Early","Late"],
+    "nouns": ["Rooms","Signals","Stories","Hearts","Lights","Waves","Skies","Windows","Machines","Echoes","Sparks","Shadows"],
+    "suffixes": ["Vol. I","Vol. II","Deluxe","(EP)","Sessions","Tapes","Stories","Diary"]
+  },
+  "single_label": "Single",
+  "review_phrases": [
+    "A catchy hook wrapped in crisp production.",
+    "The chorus lands with surprising warmth and clarity.",
+    "A playful blend of retro textures and modern punch.",
+    "Minimalist verses bloom into a luminous refrain.",
+    "Tight drums and a melody you’ll hum all day.",
+    "A late-night drive distilled into three minutes.",
+    "Crunchy guitars meet a glassy synth skyline.",
+    "Intimate vocals over an effortlessly cool groove.",
+    "A shimmering bridge ties the whole track together.",
+    "Proof that simple ideas can still feel new."
+  ]
+}

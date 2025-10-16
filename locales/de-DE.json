@@ -1,0 +1,37 @@
+{
+  "code": "de-DE",
+  "genres": [
+    "Pop","Rock","Hip-Hop","Elektronisch","R&B","Schlager","Jazz","Klassik","Indie","Metal",
+    "Folk","Reggae","House","Techno","Drum & Bass","Soul","Blues","Trap","Deutschrap","Ambient"
+  ],
+  "title_words": {
+    "adjectives": [
+      "Goldene","Neon","Leise","Wilde","Elektrische","Verblassende","Einsame","Samtene","Westliche","Urbane",
+      "Kristallene","Mitternachts","Glänzende","Gebrochene","Glückliche","Silberne","Blaue","Versteckte","Digitale","Stürmische",
+      "Endlose","Frostige","Brennende","Weiche"
+    ],
+    "nouns": [
+      "Echo","Himmel","Fluss","Traum","Herz","Feuer","Sturm","Licht","Schatten","Straße","Erinnerung","Story",
+      "Signal","Puls","Rhythmus","Maschine","Mond","Sonnenaufgang","Stadt","Flamme","Welle","Wald","Fenster","Karussell"
+    ],
+    "suffixes": ["Blues","Hymne","Serenade","Rhapsodie","Groove","Beat","Remix","Jam","Edit","Version"]
+  },
+  "album_words": {
+    "adjectives": ["Goldene","Neon","Versteckte","Laute","Leise","Flüssige","Heilige","Weiche","Kalte","Brennende","Laute","Tiefe","Frühe","Späte"],
+    "nouns": ["Räume","Signale","Geschichten","Herzen","Lichter","Wellen","Himmel","Fenster","Maschinen","Echos","Funken","Schatten"],
+    "suffixes": ["Vol. I","Vol. II","Deluxe","(EP)","Sessions","Tapes","Geschichten","Tagebuch"]
+  },
+  "single_label": "Single",
+  "review_phrases": [
+    "Ein Ohrwurm mit klarer, frischer Produktion.",
+    "Der Refrain kommt warm und überraschend ehrlich.",
+    "Verspielt zwischen Retro-Texturen und modernem Punch.",
+    "Minimalistische Strophen blühen im hellen Refrain auf.",
+    "Straffe Drums und eine Melodie, die bleibt.",
+    "Wie eine nächtliche Autofahrt in drei Minuten.",
+    "Rauhe Gitarren treffen auf eine gläserne Synth-Skyline.",
+    "Intimer Gesang über einem mühelos coolen Groove.",
+    "Eine schimmernde Bridge hält den Song zusammen.",
+    "Beweis, dass einfache Ideen noch neu klingen können."
+  ]
+}

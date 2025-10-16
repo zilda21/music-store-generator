@@ -1,0 +1,22 @@
+{
+  "name": "music-store-generator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "NODE_ENV=development node server.js"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.0.0",
+    "archiver": "^7.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "lamejs": "^1.2.1"
+  },
+  "description": "Single‑page web app + Node/Express server that generates a fake music store showcase with **seeded** data and **server‑side** audio synthesis.",
+  "main": "server.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

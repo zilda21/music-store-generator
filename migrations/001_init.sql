@@ -1,0 +1,2 @@
+-- Placeholder migration file; no persistent DB required for random generation.
+-- You could keep lookup tables for locales here if desired.

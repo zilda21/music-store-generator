@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Music Store Generator</title>
+  <style>
+    :root { color-scheme: dark; }
+    body { margin:0; font-family: system-ui, Segoe UI, Inter, Arial, sans-serif; background:#0f1220; color:#e8ecf1; }
+    .toolbar { position:sticky; top:0; z-index:10; display:flex; flex-wrap:wrap; gap:.6rem; align-items:center; padding:.7rem 1rem; background:#0b0e1b; border-bottom:1px solid #1b1f34; }
+    .toolbar label { font-size:.85rem; opacity:.85; margin-right:.35rem; }
+    .toolbar input[type="text"], select { padding:.4rem .55rem; border:1px solid #30344c; background:#101431; color:#e8ecf1; border-radius:.45rem; }
+    .btn { padding:.45rem .7rem; background:#17214a; border:1px solid #2a375f; border-radius:.45rem; cursor:pointer; }
+    .btn.primary { background:#2f6fed; border-color:#3a78f1; }
+    main { padding:1rem; }
+    .gallery { display:grid; gap:1rem; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); }
+    .song-card { background:#101437; border:1px solid #1b2036; border-radius:14px; overflow:hidden; display:flex; flex-direction:column; }
+    .cover { height:180px; width:100%; object-fit:cover; }
+    .song-card h3 { margin:.5rem .75rem 0; font-size:1rem; }
+    .song-card p { margin:.25rem .75rem; font-size:.85rem; opacity:.9; }
+    audio { width:100%; margin-top:.3rem; }
+    table { width:100%; border-collapse:collapse; margin-top:1rem; }
+    th, td { padding:.55rem .5rem; border-bottom:1px solid #1b2036; vertical-align:middle; }
+    th { text-align:left; opacity:.85; }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <label>Language</label>
+    <select id="lang">
+      <option value="en-US">English (US)</option>
+      <option value="de-DE">Deutsch (DE)</option>
+    </select>
+
+    <label>Seed (64-bit)</label>
+    <input id="seed" type="text" value="0x1" />
+    <button id="dice" class="btn" title="Random seed">🎲</button>
+
+    <label>Likes / song (avg)</label>
+    <input id="likesSlider" type="range" min="0" max="10" step="0.1" value="3.5" />
+    <output id="likesValue">3.5</output>
+
+    <span style="margin-left:auto">
+      <button id="tableView" class="btn">Table View</button>
+      <button id="galleryView" class="btn">Gallery View</button>
+      <button id="exportZip" class="btn primary">Export ZIP</button>
+    </span>
+  </div>
+
+  <main>
+    <div id="songsContainer"></div>
+    <div id="pagination" class="pagination"></div>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

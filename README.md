@@ -1,7 +1,7 @@
 
 # Music Store – Seeded Generator
 
-Single‑page web app + Node/Express server that generates a fake music store showcase with **seeded** data and **server‑side** audio synthesis.
+Single‑page web app + Node/Express server that generates a fake music store showcase with **seeded** data and **server‑side** audio synthesis. To visit it:https://music-store-generator.onrender.com
 
 ## Features
 - Language selection: **English (US)** and **Deutsch (DE)**. Easily add more by dropping JSON files in `locales/`.
